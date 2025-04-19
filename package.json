@@ -4,20 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint ./src --ext .js,.jsx",
-  "format": "prettier --write ./src",
-  "prepare": "husky install",
-  "commit": "cz",
-  "test": "echo 'Nenhum teste configurado ainda' && exit 0"
-},
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "format": "prettier --write ./src",
+    "prepare": "husky install",
+    "commit": "cz",
+    "test": "echo 'Nenhum teste configurado ainda' && exit 0"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "dependencies": {
+    "lucide-react": "^0.501.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
