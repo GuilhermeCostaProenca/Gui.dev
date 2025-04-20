@@ -22,26 +22,29 @@ export default function GalleryBackground() {
   const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const x3 = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
+  const baseImageClass =
+    "w-[400px] h-[260px] rounded-xl object-cover transition-transform duration-500 hover:scale-105 hover:rotate-1";
+
   return (
-    <section
+    <div
       ref={targetRef}
-      className="w-full pt-48 px-6 overflow-hidden absolute inset-0 -z-10"
+      className="absolute inset-0 -z-10 overflow-hidden pt-[30rem]"
     >
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 px-10">
         <motion.div
           style={{ x: x1 }}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 0.2, y: 0 }}
-          viewport={{ once: false }}
+          whileInView={{ opacity: 0.1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="flex gap-6"
+          className="flex gap-4"
         >
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
               alt={`project ${i + 1}`}
-              className="w-[350px] h-[220px] rounded-lg object-cover"
+              className={baseImageClass}
             />
           ))}
         </motion.div>
@@ -50,16 +53,16 @@ export default function GalleryBackground() {
           style={{ x: x2 }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 0.4, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 1.2, delay: 0.1 }}
-          className="flex gap-6"
+          className="flex gap-4"
         >
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
               alt={`project ${i + 1}`}
-              className="w-[350px] h-[220px] rounded-lg object-cover"
+              className={baseImageClass}
             />
           ))}
         </motion.div>
@@ -67,21 +70,21 @@ export default function GalleryBackground() {
         <motion.div
           style={{ x: x3 }}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 0.6, y: 0 }}
-          viewport={{ once: false }}
+          whileInView={{ opacity: 0.7, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1.4, delay: 0.2 }}
-          className="flex gap-6"
+          className="flex gap-4"
         >
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
               alt={`project ${i + 1}`}
-              className="w-[350px] h-[220px] rounded-lg object-cover"
+              className={baseImageClass}
             />
           ))}
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }
