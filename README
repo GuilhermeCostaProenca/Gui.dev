@@ -1,0 +1,36 @@
+# Guilherme.Dev 🚀
+
+Portfólio profissional desenvolvido em **React + Vite + TailwindCSS**, com foco em performance, animações suaves, responsividade e design premium.
+
+> ✅ Projeto finalizado e publicado em:  
+> [https://guilhermecostaproenca.github.io/Gui.dev](https://guilhermecostaproenca.github.io/Gui.dev)
+
+---
+
+## 📸 Preview
+
+![screenshot](https://placehold.co/1200x600/000000/00ffff?text=Preview+do+Site)
+
+---
+
+## 📦 Tecnologias
+
+- ⚛️ React 19
+- ⚡ Vite
+- 🎨 TailwindCSS
+- 🎞️ Framer Motion
+- 🎯 Lucide React Icons
+- 🧪 ESLint + Prettier
+- 💬 Commitizen + Husky
+- ☁️ Deploy via GitHub Pages
+
+---
+
+## 🚀 Como rodar o projeto localmente
+
+```bash
+# Instalar dependências
+npm install
+
+# Rodar localmente
+npm run dev
