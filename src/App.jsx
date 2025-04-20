@@ -6,11 +6,14 @@ import Portfolio from './components/Portfolio/Portfolio';
 import Footer from './components/Footer/Footer';
 import Gallery from './components/Gallery/Gallery';
 import GalleryBackground from './components/Gallery/GalleryBackground';
+import LightOverlay from "./components/LightOverlay";
+
 
 
 function App() {
   return (
     <>
+      <LightOverlay />
       <Navbar />
       <Hero />
       <About />

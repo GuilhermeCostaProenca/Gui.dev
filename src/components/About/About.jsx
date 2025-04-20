@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="relative w-full min-h-[140vh] flex items-center justify-center text-center px-6 py-40 overflow-hidden"
+      className="relative w-full min-h-[140vh] flex items-center justify-center text-center px-6 pt-28 pb-40 overflow-hidden"
     >
       {/* Galeria de fundo com scroll */}
       <GalleryBackground />

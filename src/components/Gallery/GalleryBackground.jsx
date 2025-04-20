@@ -18,12 +18,38 @@ export default function GalleryBackground() {
     offset: ["start end", "end start"],
   });
 
+  // Aparecimento progressivo das fileiras
+  const opacity1 = useTransform(scrollYProgress, [0.05, 0.15], [0, 0.25]);
+  const opacity2 = useTransform(scrollYProgress, [0.25, 0.35], [0, 0.3]);
+  const opacity3 = useTransform(scrollYProgress, [0.45, 0.55], [0, 0.35]);
+
+  // Movimento horizontal leve
   const x1 = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
   const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const x3 = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   const baseImageClass =
-    "w-[400px] h-[260px] rounded-xl object-cover transition-transform duration-500 hover:scale-105 hover:rotate-1";
+    "min-w-[300px] max-w-[350px] h-auto rounded-xl object-cover brightness-[40%] opacity-100 pointer-events-none";
+
+  const AnimatedRow = ({ x, opacity }) => (
+    <motion.div
+      style={{
+        x,
+        y: useTransform(opacity, [0, 1], [50, 0]),
+        opacity,
+      }}
+      className="flex gap-4"
+    >
+      {images.map((img, i) => (
+        <img
+          key={i}
+          src={img}
+          alt={`project ${i + 1}`}
+          className={baseImageClass}
+        />
+      ))}
+    </motion.div>
+  );
 
   return (
     <div
@@ -31,59 +57,9 @@ export default function GalleryBackground() {
       className="absolute inset-0 -z-10 overflow-hidden pt-[30rem]"
     >
       <div className="flex flex-col gap-10 px-10">
-        <motion.div
-          style={{ x: x1 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 0.1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="flex gap-4"
-        >
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`project ${i + 1}`}
-              className={baseImageClass}
-            />
-          ))}
-        </motion.div>
-
-        <motion.div
-          style={{ x: x2 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 0.4, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.1 }}
-          className="flex gap-4"
-        >
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`project ${i + 1}`}
-              className={baseImageClass}
-            />
-          ))}
-        </motion.div>
-
-        <motion.div
-          style={{ x: x3 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 0.7, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.4, delay: 0.2 }}
-          className="flex gap-4"
-        >
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`project ${i + 1}`}
-              className={baseImageClass}
-            />
-          ))}
-        </motion.div>
+        <AnimatedRow x={x1} opacity={opacity1} />
+        <AnimatedRow x={x2} opacity={opacity2} />
+        <AnimatedRow x={x3} opacity={opacity3} />
       </div>
     </div>
   );
