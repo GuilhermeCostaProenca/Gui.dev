@@ -1,4 +1,4 @@
-import Services from "./components/Services/Services";
+import Portfolio from "./components/Portfolio/Portfolio";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Hero />
       <About />
       <Services />
+      <Portfolio />
     </>
   );
 }
