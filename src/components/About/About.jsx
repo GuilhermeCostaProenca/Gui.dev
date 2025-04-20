@@ -1,67 +1,41 @@
-import { motion } from "framer-motion";
+// src/components/About/About.jsx
+import GalleryBackground from "../Gallery/GalleryBackground";
 
 export default function About() {
   return (
     <section
       id="sobre"
-      className="min-h-screen w-full flex items-center justify-center px-6 py-20 bg-black text-white"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-4 pt-[100vh] pb-24 overflow-hidden"
     >
-      <div className="max-w-3xl text-center space-y-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold tracking-tight"
-        >
-          Hi There! 👋
-        </motion.h2>
+      {/* Fundo animado com 3 fileiras que deslizam no scroll */}
+      <GalleryBackground />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg md:text-xl text-white/80 leading-relaxed"
-        >
-          Eu sou o Guilherme, um desenvolvedor apaixonado por criar experiências
-          digitais envolventes. Acredito que cada projeto deve equilibrar
-          estética, performance e propósito.
-        </motion.p>
+      <div className="absolute inset-0 -z-10">
+        <p className="text-cyan-400 text-sm tracking-[.25em] uppercase mb-2">About Me</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Hi There!</h2>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          {["React", "Tailwind", "Framer Motion", "Git", "Vite"].map((skill) => (
-            <span
-              key={skill}
-              className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 px-4 py-2 text-sm rounded-full font-medium hover:bg-cyan-500/20 transition"
-            >
-              {skill}
-            </span>
-          ))}
-        </motion.div>
+        <p className="text-white/80 text-lg leading-relaxed">
+          I’m <strong className="text-white">Guilherme Costa Proença</strong>, a passionate developer with expertise in building modern, fluid and high-performance interfaces.
+          Since <strong className="text-white">2023</strong>, I’ve been designing systems that combine usability and impact.
+          <br /><br />
+          I specialize in <span className="text-cyan-400">typography</span>, <span className="text-white font-medium">composition</span>, and <span className="text-yellow-400">color theory</span>,
+          always aiming for clean code and creative solutions.
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row justify-center gap-4 pt-4"
-        >
+        <div className="relative z-10 max-w-2xl mx-auto">
           <a
             href="#contato"
-            className="px-6 py-3 bg-white text-black rounded-full text-sm font-semibold tracking-wide hover:bg-gray-200 transition"
+            className="border border-white/30 px-5 py-2 rounded-full text-white/70 hover:text-white hover:border-white transition"
           >
-            Vamos conversar
+            Let's Connect
           </a>
           <a
             href="#blog"
-            className="px-6 py-3 border border-white/20 rounded-full text-sm text-white hover:bg-white hover:text-black transition"
+            className="border border-white/30 px-5 py-2 rounded-full text-white/70 hover:text-white hover:border-white transition"
           >
-            Ver blog
+            Blog
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
