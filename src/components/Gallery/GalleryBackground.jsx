@@ -12,76 +12,63 @@ import img7 from "../../assets/images/7.jpg";
 const images = [img1, img2, img3, img4, img5, img6, img7];
 
 export default function GalleryBackground() {
-  const targetRef = useRef(null);
+  const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({
-    target: targetRef,
+    target: ref,
     offset: ["start end", "end start"],
   });
 
-  const x1 = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
-  const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
-  const x3 = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const x1 = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const x2 = useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]);
+  const x3 = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+
+  const opacity1 = useTransform(scrollYProgress, [0, 0.3], [0, 0.2]);
+  const opacity2 = useTransform(scrollYProgress, [0.2, 0.6], [0, 0.4]);
+  const opacity3 = useTransform(scrollYProgress, [0.4, 1], [0, 0.6]);
 
   return (
-    <section
-      ref={targetRef}
-      className="w-full py-24 px-6 overflow-hidden"
+    <div
+      ref={ref}
+      className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
     >
-      <div className="flex flex-col gap-10">
-        <motion.div
-          style={{ x: x1 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="flex gap-6"
-        >
+      <div className="flex flex-col gap-10 px-10 pt-32 pb-40">
+        {/* Linha 1 - bem suave */}
+        <motion.div style={{ x: x1, opacity: opacity1 }} className="flex gap-6">
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
-              alt={`project ${i + 1}`}
-              className="w-[350px] h-[220px] rounded-lg object-cover opacity-20"
+              alt={`project-${i}`}
+              className="w-[350px] h-[200px] rounded-xl object-cover grayscale blur-sm"
             />
           ))}
         </motion.div>
 
-        <motion.div
-          style={{ x: x2 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.1 }}
-          className="flex gap-6"
-        >
+        {/* Linha 2 - média */}
+        <motion.div style={{ x: x2, opacity: opacity2 }} className="flex gap-6">
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
-              alt={`project ${i + 1}`}
-              className="w-[350px] h-[220px] rounded-lg object-cover opacity-20"
+              alt={`project-${i}`}
+              className="w-[370px] h-[210px] rounded-xl object-cover grayscale-[30%] blur-[1px]"
             />
           ))}
         </motion.div>
 
-        <motion.div
-          style={{ x: x3 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.4, delay: 0.2 }}
-          className="flex gap-6 z-[-1]"
-        >
+        {/* Linha 3 - mais visível */}
+        <motion.div style={{ x: x3, opacity: opacity3 }} className="flex gap-6">
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
-              alt={`project ${i + 1}`}
-              className="w-[350px] h-[220px] rounded-lg object-cover opacity-20"
+              alt={`project-${i}`}
+              className="w-[400px] h-[230px] rounded-xl object-cover grayscale-[20%] blur-[0.5px]"
             />
           ))}
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -14,6 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <GalleryBackground />
       <Services />
       <Portfolio />
       <Footer />
