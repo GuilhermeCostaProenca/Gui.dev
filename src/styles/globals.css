@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black text-white font-sans overflow-x-hidden;
+  @apply bg-black text-white font-satoshi text-[15px] leading-relaxed tracking-tight;
+  overflow-x: hidden;
 }
+
