@@ -102,6 +102,10 @@ export default function Hero() {
         id="starfield-canvas"
         className="absolute inset-0 z-[-1] w-screen h-screen block"
       />
+
+      {/* Gradient para transição suave entre Hero e About */}
+<div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black pointer-events-none z-10" />
+
     </section>
   );
 }

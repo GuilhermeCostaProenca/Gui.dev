@@ -13,34 +13,75 @@ const images = [img1, img2, img3, img4, img5, img6, img7];
 
 export default function GalleryBackground() {
   const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: targetRef, offset: ["start end", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
 
-  // Animação das linhas com deslocamento horizontal baseado no scroll
-  const x1 = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]); // linha 1 →
-  const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);  // linha 2 ←
-  const x3 = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]); // linha 3 →
+  const x1 = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
+  const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const x3 = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   return (
-    <div ref={targetRef} className="w-full overflow-hidden -z-10 relative">
-      <div className="flex flex-col gap-10 px-10 py-20">
-        <motion.div style={{ x: x1 }} className="flex gap-6">
+    <section
+      ref={targetRef}
+      className="w-full py-24 px-6 overflow-hidden bg-black"
+    >
+      <div className="flex flex-col gap-10">
+        <motion.div
+          style={{ x: x1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="flex gap-6"
+        >
           {images.map((img, i) => (
-            <img key={i} src={img} alt="project" className="w-[350px] h-[220px] rounded-lg object-cover opacity-20" />
+            <img
+              key={i}
+              src={img}
+              alt={`project ${i + 1}`}
+              className="w-[350px] h-[220px] rounded-lg object-cover opacity-20"
+            />
           ))}
         </motion.div>
 
-        <motion.div style={{ x: x2 }} className="flex gap-6">
+        <motion.div
+          style={{ x: x2 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.1 }}
+          className="flex gap-6"
+        >
           {images.map((img, i) => (
-            <img key={i} src={img} alt="project" className="w-[350px] h-[220px] rounded-lg object-cover opacity-20" />
+            <img
+              key={i}
+              src={img}
+              alt={`project ${i + 1}`}
+              className="w-[350px] h-[220px] rounded-lg object-cover opacity-20"
+            />
           ))}
         </motion.div>
 
-        <motion.div style={{ x: x3 }} className="flex gap-6">
+        <motion.div
+          style={{ x: x3 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.4, delay: 0.2 }}
+          className="flex gap-6"
+        >
           {images.map((img, i) => (
-            <img key={i} src={img} alt="project" className="w-[350px] h-[220px] rounded-lg object-cover opacity-20" />
+            <img
+              key={i}
+              src={img}
+              alt={`project ${i + 1}`}
+              className="w-[350px] h-[220px] rounded-lg object-cover opacity-20"
+            />
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
