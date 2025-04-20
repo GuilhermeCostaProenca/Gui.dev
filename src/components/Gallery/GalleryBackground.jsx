@@ -25,7 +25,7 @@ export default function GalleryBackground() {
   return (
     <section
       ref={targetRef}
-      className="w-full py-24 px-6 overflow-hidden bg-black"
+      className="w-full py-24 px-6 overflow-hidden"
     >
       <div className="flex flex-col gap-10">
         <motion.div
@@ -70,7 +70,7 @@ export default function GalleryBackground() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, delay: 0.2 }}
-          className="flex gap-6"
+          className="flex gap-6 z-[-1]"
         >
           {images.map((img, i) => (
             <img

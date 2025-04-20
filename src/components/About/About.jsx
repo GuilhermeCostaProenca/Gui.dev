@@ -4,14 +4,14 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="relative w-full min-h-screen flex flex-col items-center justify-start text-center px-4 pt-36 pb-60 bg-black overflow-visible"
+      className="relative w-full min-h-screen flex items-center justify-center text-center px-4 pt-36 pb-[80vh] bg-black overflow-hidden"
     >
-      {/* Galeria aparecendo por trás e abaixo */}
-      <div className="absolute top-[60%] left-0 w-full h-[100vh] -z-10">
+      {/* Galeria em segundo plano */}
+      <div className="absolute inset-0 top-48 -z-10">
         <GalleryBackground />
       </div>
 
-      {/* Conteúdo principal */}
+      {/* Conteúdo principal flutuando acima */}
       <div className="relative z-10 max-w-2xl mx-auto">
         <p className="text-cyan-400 text-sm tracking-[.25em] uppercase mb-2">About Me</p>
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Hi There!</h2>

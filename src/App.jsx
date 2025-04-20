@@ -4,7 +4,7 @@ import About from './components/About/About';
 import Services from './components/Services/Services';
 import Portfolio from './components/Portfolio/Portfolio';
 import Footer from './components/Footer/Footer';
-import Gallery from "./components/Gallery/Gallery";
+import Gallery from './components/Gallery/Gallery';
 import GalleryBackground from './components/Gallery/GalleryBackground';
 
 
@@ -14,7 +14,6 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <GalleryBackground />
       <Services />
       <Portfolio />
       <Footer />
