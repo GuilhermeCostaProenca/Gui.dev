@@ -1,33 +1,30 @@
 import { motion } from "framer-motion";
 
 const tools = [
-  { name: "webflow", src: "images/tools/webflow.svg" },
-  { name: "wordpress", src: "images/tools/wordpress.svg" },
-  { name: "wix", src: "images/tools/wix.svg" },
-  { name: "framer", src: "images/tools/framer.svg" },
-  { name: "hostinger", src: "images/tools/hostinger.svg" },
-  { name: "squarespace", src: "images/tools/squarespace.svg" },
-  { name: "shopify", src: "images/tools/shopify.svg" },
-  { name: "figma", src: "images/tools/figma.svg" },
+  "webflow", "wordpress", "wix", "framer",
+  "hostinger", "squarespace", "shopify", "figma",
 ];
 
 export default function ToolsGrid() {
   return (
-    <div className="grid grid-cols-4 gap-2 md:gap-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="bg-[#111111] border border-white/10 rounded-2xl p-6 shadow-[0_0_40px_rgba(255,255,255,0.05)] grid grid-cols-2 gap-4"
+    >
       {tools.map((tool, index) => (
-        <motion.div
+        <div
           key={index}
-          className="bg-[#0f0f0f] rounded-xl flex items-center justify-center aspect-square cursor-pointer"
-          whileHover={{ scale: 1.08, boxShadow: "0px 0px 20px rgba(168,85,247,0.4)" }}
-          transition={{ type: "spring", stiffness: 300 }}
+          className="bg-[#0b0b0b] rounded-xl aspect-square flex items-center justify-center transition-all hover:scale-105"
         >
           <img
-            src={tool.src}
-            alt={tool.name}
-            className="h-8 w-8 object-contain grayscale hover:grayscale-0 transition duration-300"
+            src={`images/tools/${tool}.svg`}
+            alt={tool}
+            className="h-10 md:h-12 object-contain transition-all duration-300"
           />
-        </motion.div>
+        </div>
       ))}
-    </div>
+    </motion.div>
   );
 }
