@@ -8,6 +8,9 @@ import Gallery from './components/Gallery/Gallery';
 import GalleryBackground from './components/Gallery/GalleryBackground';
 import LightOverlay from "./components/LightOverlay";
 import ServiceShowcase from "./components/sections/ServiceShowcase";
+import FeaturedProjects from "./components/sections/FeaturedProjects";
+import SkillsAndTools from "./components/sections/SkillsAndTools";
+
 
 
 
@@ -22,6 +25,8 @@ function App() {
       <Hero />
       <About />
       <ServiceShowcase />
+      <FeaturedProjects />
+      <SkillsAndTools />
       <Services />
       <Portfolio />
       <Footer />

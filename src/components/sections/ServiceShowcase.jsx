@@ -5,11 +5,11 @@ const services = ["GRAPHIC DESIGN", "VIDEO PRODUCTION", "3D MODELING", "ALL DESI
 export default function ServiceShowcase() {
   return (
     <section className="w-full py-32 bg-black text-white overflow-hidden">
-      <div className="flex flex-col items-center justify-center text-center gap-y-2 px-2">
+      <div className="flex flex-col items-center justify-center text-center gap-0 px-2">
         {services.map((service, index) => (
           <div
             key={index}
-            className="relative group h-[90px] sm:h-[100px] w-full flex items-center justify-center overflow-hidden"
+            className="relative group h-[80px] sm:h-[100px] w-full flex items-center justify-center overflow-hidden"
           >
             {/* Texto principal */}
             <motion.h2
@@ -17,7 +17,7 @@ export default function ServiceShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-[clamp(2.5rem,9vw,5.5rem)] font-extrabold leading-[0.8] tracking-tight text-white transition-all duration-700 group-hover:text-white/10 group-hover:scale-75 group-hover:blur-sm z-10"
+              className="text-[clamp(2.5rem,8vw,5rem)] font-extrabold leading-[0.7] tracking-tight text-white transition-all duration-700 group-hover:text-white/10 group-hover:scale-75 group-hover:blur-sm z-10"
             >
               {service}
             </motion.h2>
