@@ -1,7 +1,11 @@
+import { MousePointerClick, Lightbulb, RefreshCcw, MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+
 import ToolsGrid from "../SkillsSection/ToolsGrid";
 import CollaborateCard from "../SkillsSection/CollaborateCard";
 import NavigationCard from "../SkillsSection/NavigationCard";
-import GlobalReachCard from "../SkillsSection/GlobalReach";
+import GlobalReachCard from "../SkillsSection/GlobalReachCard";
 import AnimationEffects from "../SkillsSection/AnimationEffects";
 
 export default function SkillsAndTools() {
