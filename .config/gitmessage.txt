@@ -1,0 +1,15 @@
+feat(scope): mensagem curta
+
+# Explicação mais detalhada (opcional)
+# 
+# Tipos recomendados:
+# feat     → nova funcionalidade
+# fix      → correção de bug
+# docs     → alterações na documentação
+# style    → formatação (espaços, ponto e vírgula, etc)
+# refactor → melhoria sem mudança de funcionalidade
+# test     → criação/modificação de testes
+# chore    → tarefas internas, setup, configs
+
+# Exemplo:
+# feat(login): adiciona botão de login social
