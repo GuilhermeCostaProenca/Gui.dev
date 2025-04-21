@@ -7,6 +7,10 @@ import Footer from './components/Footer/Footer';
 import Gallery from './components/Gallery/Gallery';
 import GalleryBackground from './components/Gallery/GalleryBackground';
 import LightOverlay from "./components/LightOverlay";
+import ServiceShowcase from "./components/sections/ServiceShowcase";
+
+
+
 
 
 
@@ -17,6 +21,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <ServiceShowcase />
       <Services />
       <Portfolio />
       <Footer />
