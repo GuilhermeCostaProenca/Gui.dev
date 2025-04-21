@@ -12,6 +12,7 @@ export default {
         colors: {
           devansh: '#0a0f1c', // fundo exato igual ao Hero dele
         },
+        
       },
     }, 
 }    
