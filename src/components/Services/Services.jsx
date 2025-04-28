@@ -1,110 +1,119 @@
-// src/components/Services.jsx
-import React from "react";
 import { motion } from "framer-motion";
-import { Layout, ImageIcon, FileVideo, Box, ChevronRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  LayoutTemplate, ShoppingCart, Briefcase, Newspaper, Building, MonitorSmartphone, Smartphone,
+  Image, Megaphone, FileText, PenTool, BadgePercent, Tag, UserSquare,
+  Video, Film, VideoOff, MonitorPlay, CalendarClock,
+  Layers, Home, MoveRight, Box,
+} from "lucide-react";
 
 const services = [
   {
     title: "Website Design",
-    icon: Layout,
     items: [
-      "Landing Pages", "E-commerce", "Portfolio", "Blogs", 
-      "Corporate Websites", "UI/UX Design", "Responsive Design"
+      { icon: <LayoutTemplate size={16} />, text: "Landing Pages" },
+      { icon: <ShoppingCart size={16} />, text: "E-commerce" },
+      { icon: <Briefcase size={16} />, text: "Portfolio" },
+      { icon: <Newspaper size={16} />, text: "Blogs" },
+      { icon: <Building size={16} />, text: "Corporate Websites" },
+      { icon: <MonitorSmartphone size={16} />, text: "UI/UX Design" },
+      { icon: <Smartphone size={16} />, text: "Responsive Design" },
     ],
   },
   {
     title: "Graphic Design",
-    icon: ImageIcon,
     items: [
-      "Posters", "Banners", "Brochure & Flyers", "Post Design", 
-      "Logo Designs", "Brand Guidelines", "Packaging Designs", "Business Cards"
+      { icon: <Image size={16} />, text: "Posters" },
+      { icon: <Megaphone size={16} />, text: "Banners" },
+      { icon: <FileText size={16} />, text: "Brochure & Flyers" },
+      { icon: <PenTool size={16} />, text: "Post Design" },
+      { icon: <BadgePercent size={16} />, text: "Logo Designs" },
+      { icon: <Tag size={16} />, text: "Brand Guidelines" },
+      { icon: <UserSquare size={16} />, text: "Packaging Designs" },
+      { icon: <UserSquare size={16} />, text: "Business Cards" },
     ],
   },
   {
     title: "Video Editing",
-    icon: FileVideo,
     items: [
-      "Promotional Videos", "Corporate Videos", "Social Media Clips", 
-      "Product Demos", "Event Videos"
+      { icon: <Video size={16} />, text: "Promotional Videos" },
+      { icon: <Film size={16} />, text: "Corporate Videos" },
+      { icon: <VideoOff size={16} />, text: "Social Media Clips" },
+      { icon: <MonitorPlay size={16} />, text: "Product Demos" },
+      { icon: <CalendarClock size={16} />, text: "Event Videos" },
     ],
   },
   {
     title: "3D Modeling",
-    icon: Box,
     items: [
-      "Product Design", "Product Visualization", 
-      "Interior & Exterior Designs", "Motion Graphics"
+      { icon: <Box size={16} />, text: "Product Design" },
+      { icon: <Layers size={16} />, text: "Product Visualization" },
+      { icon: <Home size={16} />, text: "Interior & Exterior Designs" },
+      { icon: <MoveRight size={16} />, text: "Motion Graphics" },
     ],
   },
 ];
 
-// Substitua pelas logos corretas na sua pasta "public"
-const logos = [
-  "/logos/logo1.png",
-  "/logos/logo2.png",
-  "/logos/logo3.png",
-  "/logos/logo4.png",
-  "/logos/logo5.png"
-];
-
-export default function Services() {
+export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-32 bg-black overflow-hidden">
-      {/* SERVICES gigante atrás */}
-      <h2 className="
-        absolute left-1/2 top-[20%] transform -translate-x-1/2 -translate-y-1/2
-        text-[15rem] font-bold text-white/5 tracking-tight select-none pointer-events-none
-      ">
-        SERVICES
-      </h2>
+    <section className="relative w-full bg-black text-white pt-28 pb-40 px-6 overflow-hidden">
+      {/* Texto SERVICES no fundo */}
+      <div className="absolute top-0 left-0 w-full flex justify-center z-0 pointer-events-none">
+  <h1 className="text-[240px] md:text-[300px] font-bold text-white/5 tracking-tight leading-none select-none">
+    SERVICES
+  </h1>
+  <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent" />
+</div>
 
-      {/* Container central */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {services.map(({ title, icon: Icon, items }, index) => (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="
-                bg-white/5 backdrop-blur-md border border-white/10
-                rounded-3xl p-8 transition-all duration-300
-                hover:bg-white/10 hover:scale-[1.03] hover:border-white/20
-              "
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <Icon className="w-7 h-7 text-cyan-300" />
-                <h3 className="text-xl font-semibold text-white">{title}</h3>
+      {/* Grid de cards */}
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+        {services.map((category, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.3 }}
+            className="flex"
+          >
+            <Card className="bg-black border border-white/10 rounded-2xl text-white w-full relative overflow-hidden">
+              <div className="absolute top-0 left-4 right-4 h-[1px] bg-white/10 mt-3 rounded-full" />
+              <CardContent className="pt-8 pb-6 px-6">
+                <h3 className="font-semibold text-white text-lg mb-4">
+                  {category.title}
+                </h3>
+                <ul className="space-y-3 text-sm text-gray-300">
+                  {category.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      {item.icon}
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Worked With */}
+      <div className="mt-32 text-center group relative z-10">
+        <h4 className="text-sm uppercase text-white font-semibold tracking-widest group-hover:opacity-0 transition-opacity duration-300">
+          Worked With
+        </h4>
+        <div className="relative overflow-hidden h-20 mt-4">
+          <motion.div
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+            className="flex justify-center items-center gap-12 absolute whitespace-nowrap blur-sm group-hover:blur-0 transition-all duration-300"
+          >
+            {[...Array(16)].map((_, i) => (
+              <div
+                key={i}
+                className="w-16 h-16 bg-white/5 rounded-lg flex items-center justify-center text-xs text-white/30"
+              >
+                Logo {i % 8 + 1}
               </div>
-              <ul className="space-y-3">
-                {items.map(item => (
-                  <li key={item} className="flex items-center gap-2 text-white/70">
-                    <ChevronRight className="w-4 h-4 text-white/50" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Worked With */}
-        <div className="mt-32 flex flex-col items-center">
-          <h3 className="text-xl font-bold tracking-widest uppercase text-white mb-10">
-            Worked With
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-12">
-            {logos.map((logo, idx) => (
-              <img
-                key={idx}
-                src={logo}
-                alt={`Logo parceiro ${idx + 1}`}
-                className="h-10 grayscale hover:grayscale-0 transition duration-300"
-              />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
