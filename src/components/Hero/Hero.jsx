@@ -28,7 +28,7 @@ export default function Hero() {
     }
 
     function draw() {
-      ctx.fillStyle = "#0b0b0b"; // leve preto para destacar o fundo
+      ctx.fillStyle = "#0b0b0b";
       ctx.fillRect(0, 0, w, h);
       ctx.beginPath();
 
@@ -71,41 +71,43 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="h-screen w-full flex flex-col items-center justify-center text-center relative px-6 overflow-hidden"
+      className="relative h-screen w-full flex flex-col items-center justify-center text-center px-6 overflow-hidden"
     >
-      {/* Subtítulo */}
-      <motion.p
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-xs md:text-sm uppercase tracking-[0.3em] text-cyan-400 mb-6"
-      >
-        Design in Details
-      </motion.p>
-
-      {/* Título principal */}
-      <motion.h1
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-[clamp(3rem,15vw,9rem)] font-black tracking-tight leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white select-none"
-      >
-        PORT
-        <span className="bg-gradient-to-r from-white via-cyan-300 to-white bg-clip-text text-transparent">
-          F
-        </span>
-        OLIO
-      </motion.h1>
-
       {/* Canvas de fundo estelar */}
       <canvas
         id="starfield-canvas"
-        className="absolute inset-0 z-[-1] w-screen h-screen block"
+        className="absolute inset-0 z-0 w-screen h-screen block"
       />
 
-      {/* Gradient para transição suave entre Hero e About */}
-<div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black pointer-events-none z-10" />
+      {/* Conteúdo sobreposto */}
+      <div className="relative z-10">
+        {/* Subtítulo */}
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-cyan-400 mb-6"
+        >
+          Design in Details
+        </motion.p>
 
+        {/* Título principal */}
+        <motion.h1
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-[clamp(3rem,15vw,9rem)] font-black tracking-tight leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white select-none"
+        >
+          PORT
+          <span className="bg-gradient-to-r from-white via-cyan-300 to-white bg-clip-text text-transparent">
+            F
+          </span>
+          OLIO
+        </motion.h1>
+      </div>
+
+      {/* Gradient para transição suave entre Hero e About */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black pointer-events-none z-10" />
     </section>
   );
 }

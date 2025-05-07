@@ -6,6 +6,8 @@ import Services from './components/Services/Services';
 import Portfolio from './components/Portfolio/Portfolio';
 import Footer from './components/Footer/Footer';
 import LightOverlay from "./components/LightOverlay";
+import ImpactWords from "./ImpactWords/ImpactWords";
+import Contact from "./components/contact/Contact";
 
 
 
@@ -19,7 +21,9 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <ImpactWords />
       <Services />
+      <Contact />
       <Portfolio />
       <Footer />
       

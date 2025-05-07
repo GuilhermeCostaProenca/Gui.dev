@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       {/* Ícones sociais laterais */}
@@ -35,8 +46,10 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="fixed top-6 inset-x-0 z-50 flex justify-center"
       >
-        <div className="w-[90vw] max-w-[1000px] flex items-center justify-between rounded-full border border-white/10 bg-white/10 backdrop-blur-sm px-6 py-3">
-          
+        <div
+          className={`w-[90vw] max-w-[1000px] flex items-center justify-between rounded-full border px-6 py-3 transition-all duration-300 
+            ${scrolled ? "bg-black/60 border-white/20 backdrop-blur-md shadow-md" : "bg-white/10 border-white/10 backdrop-blur-sm"}`}
+        >
           {/* Avatar e nome */}
           <div className="flex items-center gap-3">
             <img
@@ -49,17 +62,25 @@ export default function Navbar() {
 
           {/* Links */}
           <nav className="flex gap-6 text-[13px] text-white/80 uppercase tracking-widest">
-            <a href="#inicio" className="hover:text-white transition">Início</a>
-            <a href="#sobre" className="hover:text-white transition">Sobre</a>
-            <a href="#servicos" className="hover:text-white transition">Serviços</a>
-            <a href="#portfolio" className="hover:text-white transition">Portfólio</a>
-            <a href="#blog" className="hover:text-white transition">Blog</a>
+            {["inicio", "sobre", "servicos", "portfolio", "blog"].map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="hover:text-white hover:tracking-wider hover:brightness-150 transition-all duration-300"
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </a>
+            ))}
           </nav>
 
           {/* Let's Connect */}
-          <div className="text-white/70 text-xs uppercase tracking-widest hover:text-white transition cursor-pointer hidden md:block">
+          <motion.a
+            href="#contato"
+            whileHover={{ scale: 1.05 }}
+            className="text-white/70 text-xs uppercase tracking-widest border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition hidden md:block"
+          >
             Let’s Connect
-          </div>
+          </motion.a>
         </div>
       </motion.header>
     </>
