@@ -1,6 +1,32 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 
+const chips = ["Website", "Gráficos", "Vídeo", "3D"];
+
 export default function Footer() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = `${formData.get("firstName")} ${formData.get("lastName")}`.trim();
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const message = formData.get("message");
+    const body = [
+      `Nome: ${name}`,
+      `Email: ${email}`,
+      `Telefone: ${phone}`,
+      "",
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const mailto = `mailto:contato@guilherme.dev?subject=${encodeURIComponent(
+      "Projeto - Guilherme.Dev"
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+  };
+
   return (
     <footer id="contato" className="w-full bg-black px-6 pb-10 pt-20 text-white">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12">
@@ -10,15 +36,18 @@ export default function Footer() {
             <p className="mt-2 text-sm text-white/60">
               Conte um pouco sobre seu projeto para criarmos algo único.
             </p>
-            <form className="mt-6 space-y-4">
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <input
                   type="text"
+                  name="firstName"
                   placeholder="Nome"
+                  required
                   className="rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 placeholder:text-white/40"
                 />
                 <input
                   type="text"
+                  name="lastName"
                   placeholder="Sobrenome"
                   className="rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 placeholder:text-white/40"
                 />
@@ -26,17 +55,20 @@ export default function Footer() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  required
                   className="rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 placeholder:text-white/40"
                 />
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Telefone"
                   className="rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 placeholder:text-white/40"
                 />
               </div>
               <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-white/60">
-                {"Website,Graphics,Video,3D".split(",").map((item) => (
+                {chips.map((item) => (
                   <span
                     key={item}
                     className="rounded-full border border-white/20 px-4 py-2"
@@ -47,6 +79,7 @@ export default function Footer() {
               </div>
               <textarea
                 rows="4"
+                name="message"
                 placeholder="Como posso ajudar?"
                 className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 placeholder:text-white/40"
               />
@@ -55,7 +88,7 @@ export default function Footer() {
                 data-cursor="large"
                 className="w-full rounded-full bg-white py-3 text-sm font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-cyan-100"
               >
-                Submit
+                Enviar
               </button>
             </form>
           </div>
@@ -68,6 +101,7 @@ export default function Footer() {
           <p className="text-sm text-white/60">
             © 2025 Guilherme Costa. Todos os direitos reservados.
           </p>
+          <p className="text-sm text-white/60">Contato: contato@guilherme.dev</p>
           <div className="flex gap-4">
             <a
               href="https://github.com/GuilhermeCostaProenca"

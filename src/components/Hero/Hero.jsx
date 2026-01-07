@@ -64,7 +64,7 @@ export default function Hero() {
           </motion.h1>
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <span className="font-display text-[clamp(4rem,16vw,11rem)] text-white/10">
-              D
+              G
             </span>
           </div>
         </div>

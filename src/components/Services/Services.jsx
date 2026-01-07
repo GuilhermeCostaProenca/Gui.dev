@@ -27,6 +27,8 @@ const serviceCards = [
   },
 ];
 
+const partners = ["Wix", "Framer", "Figma", "Shopify", "Webflow", "WordPress"];
+
 export default function Services() {
   return (
     <section id="servicos" className="w-full bg-black px-6 py-24">
@@ -58,7 +60,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="card-hover rounded-2xl border border-white/10 bg-white/5 p-6"
             >
               <h3 className="text-lg font-semibold">{card.title}</h3>
               <ul className="mt-4 space-y-2 text-sm text-white/60">
@@ -68,6 +70,21 @@ export default function Services() {
               </ul>
             </motion.div>
           ))}
+        </div>
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.4em] text-white/40">
+            Worked With
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            {partners.map((partner) => (
+              <span
+                key={partner}
+                className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-white/50"
+              >
+                {partner}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

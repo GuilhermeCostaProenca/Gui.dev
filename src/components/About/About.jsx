@@ -16,9 +16,12 @@ export default function About() {
           </span>
           <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Hi There!</h2>
           <p className="mt-4 text-sm text-white/70 md:text-base">
-            Sou Guilherme, designer e desenvolvedor focado em interfaces impactantes.
-            Combino estética cinematográfica, tipografia marcante e animações suaves
-            para entregar experiências que elevam a presença da sua marca.
+            Sou Guilherme, designer e desenvolvedor focado em{" "}
+            <span className="highlight-word">interfaces impactantes</span>. Combino
+            <span className="highlight-word"> tipografia</span>,{" "}
+            <span className="highlight-word">composição</span> e{" "}
+            <span className="highlight-word">cor</span> para entregar experiências
+            que elevam a presença da sua marca.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
@@ -33,8 +36,25 @@ export default function About() {
               data-cursor="large"
               className="rounded-full bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 transition hover:bg-white/20"
             >
-              Blog
+              Portfólio
             </a>
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-[0.3em] text-white/40">
+            {[
+              "Figma",
+              "Webflow",
+              "Framer",
+              "React",
+              "Node",
+              "Adobe",
+            ].map((tool) => (
+              <span
+                key={tool}
+                className="rounded-full border border-white/10 px-4 py-2"
+              >
+                {tool}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>

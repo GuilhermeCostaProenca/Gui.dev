@@ -2,28 +2,28 @@ import { motion } from "framer-motion";
 
 const projetos = [
   {
-    nome: "TT Partners",
-    descricao: "Agência digital",
-    imagem: "https://placehold.co/600x400/0f172a/38bdf8?text=TT+Partners",
-    link: "#",
+    nome: "Projeto Aurora",
+    descricao: "Landing page premium",
+    imagem: "https://placehold.co/600x400/0f172a/38bdf8?text=Projeto+Aurora",
+    status: "Em breve",
   },
   {
-    nome: "TigreTigre",
-    descricao: "Restaurante",
-    imagem: "https://placehold.co/600x400/111827/a855f7?text=TigreTigre",
-    link: "#",
+    nome: "Studio Atlas",
+    descricao: "Branding digital",
+    imagem: "https://placehold.co/600x400/111827/a855f7?text=Studio+Atlas",
+    status: "Em breve",
   },
   {
-    nome: "Dave | Portfolio",
-    descricao: "Profissional",
-    imagem: "https://placehold.co/600x400/111827/9ca3af?text=Dave+Portfolio",
-    link: "#",
+    nome: "Nova Vitrine",
+    descricao: "E-commerce boutique",
+    imagem: "https://placehold.co/600x400/111827/9ca3af?text=Nova+Vitrine",
+    status: "Em breve",
   },
   {
-    nome: "Sky Media",
-    descricao: "Business",
-    imagem: "https://placehold.co/600x400/111827/f97316?text=Sky+Media",
-    link: "#",
+    nome: "Impacta Tech",
+    descricao: "Site institucional",
+    imagem: "https://placehold.co/600x400/111827/f97316?text=Impacta+Tech",
+    status: "Em breve",
   },
 ];
 
@@ -45,21 +45,24 @@ export default function Portfolio() {
             Seleção de projetos com foco em presença digital e acabamento visual
             premium. Cada card simula a estrutura do portfólio em destaque.
           </p>
+          <a
+            href="#portfolio"
+            data-cursor="large"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-cyan-200/70 transition hover:text-cyan-100"
+          >
+            All Sites <span aria-hidden="true">→</span>
+          </a>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {projetos.map((projeto, index) => (
-            <motion.a
+            <motion.div
               key={projeto.nome}
-              href={projeto.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="large"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-white/30"
+              className="card-hover group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-white/30"
             >
               <img
                 src={projeto.imagem}
@@ -72,11 +75,11 @@ export default function Portfolio() {
                 </p>
                 <h3 className="text-lg font-semibold">{projeto.nome}</h3>
                 <p className="text-sm text-white/60">{projeto.descricao}</p>
-                <span className="inline-flex text-xs uppercase tracking-[0.3em] text-cyan-200/70">
-                  Live Site
+                <span className="inline-flex text-xs uppercase tracking-[0.3em] text-white/50">
+                  {projeto.status}
                 </span>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
