@@ -2,17 +2,27 @@ import { motion } from "framer-motion";
 
 const projetos = [
   {
- main
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Sandbox",
+    nome: "TT Partners",
+    descricao: "Agência digital",
+    imagem: "https://placehold.co/600x400/0f172a/38bdf8?text=TT+Partners",
     link: "#",
   },
   {
- main
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Insights",
+    nome: "TigreTigre",
+    descricao: "Restaurante",
+    imagem: "https://placehold.co/600x400/111827/a855f7?text=TigreTigre",
     link: "#",
   },
   {
-main
+    nome: "Dave | Portfolio",
+    descricao: "Profissional",
+    imagem: "https://placehold.co/600x400/111827/9ca3af?text=Dave+Portfolio",
+    link: "#",
+  },
+  {
+    nome: "Sky Media",
+    descricao: "Business",
+    imagem: "https://placehold.co/600x400/111827/f97316?text=Sky+Media",
     link: "#",
   },
 ];
@@ -21,52 +31,47 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="w-full py-24 px-6 bg-black text-white flex items-center justify-center"
+      className="w-full bg-black px-6 py-24 text-white"
     >
-      <div className="max-w-6xl w-full text-center space-y-12">
-        <div className="space-y-4">
+      <div className="mx-auto w-full max-w-6xl space-y-12">
+        <div className="space-y-4 text-center">
           <span className="text-xs uppercase tracking-[0.4em] text-cyan-200/70">
             Featured Websites
           </span>
-          <h2 className="text-3xl md:text-4xl font-semibold">
+          <h2 className="text-3xl font-semibold md:text-4xl">
             Impress, Engage, and Perform.
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
-            Eu crio experiências digitais com foco em narrativa visual, conversão
-            e performance. Esses cards simulam o layout dos projetos em destaque.
+          <p className="mx-auto max-w-2xl text-sm text-white/70 md:text-base">
+            Seleção de projetos com foco em presença digital e acabamento visual
+            premium. Cada card simula a estrutura do portfólio em destaque.
           </p>
         </div>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
 
-        </motion.h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {projetos.map((projeto, index) => (
             <motion.a
-              key={index}
+              key={projeto.nome}
               href={projeto.link}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-white/30 transition"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-white/30"
             >
               <img
                 src={projeto.imagem}
                 alt={projeto.nome}
-                className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+                className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
               />
-              <div className="p-4 text-left">
+              <div className="space-y-2 p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/40">
                   2025
                 </p>
-                <h3 className="text-lg font-semibold mt-2">{projeto.nome}</h3>
-                <p className="text-sm text-white/60 mt-1">{projeto.descricao}</p>
-                <span className="mt-3 inline-flex text-xs uppercase tracking-[0.3em] text-cyan-200/70">
+                <h3 className="text-lg font-semibold">{projeto.nome}</h3>
+                <p className="text-sm text-white/60">{projeto.descricao}</p>
+                <span className="inline-flex text-xs uppercase tracking-[0.3em] text-cyan-200/70">
                   Live Site
                 </span>
               </div>
