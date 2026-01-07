@@ -99,6 +99,55 @@ body {
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
 }
 
+.font-display {
+  font-family: "Bebas Neue", "Space Grotesk", sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-signature {
+  font-family: "Sacramento", cursive;
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, rgba(10, 20, 30, 0.92), rgba(4, 8, 15, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.55);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% -20%, rgba(14, 116, 144, 0.55), transparent 60%),
+    radial-gradient(circle at 50% 120%, rgba(15, 23, 42, 0.9), transparent 60%);
+}
+
+.section-title {
+  font-family: "Bebas Neue", "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 7vw, 6.2rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+}
+
+.service-marquee {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.service-marquee span {
+  display: inline-block;
+  padding-right: 3rem;
+  opacity: 0.5;
+  animation: marquee 14s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 .orb {
   position: relative;
