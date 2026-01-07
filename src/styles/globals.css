@@ -48,22 +48,6 @@ body {
   letter-spacing: 0.04em;
 }
 
-.service-marquee {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.service-marquee span {
-  display: inline-block;
-  padding-right: 3rem;
-  opacity: 0.5;
-  animation: marquee 14s linear infinite;
-}
-
-.service-marquee:hover span {
-  animation-play-state: paused;
-}
 
 .highlight-word {
   position: relative;
@@ -90,14 +74,6 @@ body {
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.55);
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
 .cursor-dot,
 .cursor-ring {
@@ -157,8 +133,8 @@ body {
 
 .orb {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: var(--orb-size, 280px);
+  height: var(--orb-size, 280px);
   border-radius: 9999px;
   background: radial-gradient(circle at 30% 30%, #ffffff, #4fd1c5 35%, #0f172a 70%);
   box-shadow: 0 0 80px rgba(34, 211, 238, 0.35), inset 0 0 40px rgba(255, 255, 255, 0.2);
@@ -195,10 +171,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .service-marquee span {
-    animation: none;
-  }
-
   .orb {
     animation: none;
   }

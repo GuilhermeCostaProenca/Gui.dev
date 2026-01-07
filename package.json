@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^12.7.4",
     "lucide-react": "^0.501.0",
     "react": "^19.0.0",
