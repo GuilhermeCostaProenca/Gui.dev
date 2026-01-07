@@ -1,7 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply bg-black text-white font-sans overflow-x-hidden;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+.orb {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #4fd1c5 35%, #0f172a 70%);
+  box-shadow: 0 0 80px rgba(34, 211, 238, 0.35), inset 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: float 6s ease-in-out infinite;
+}
+
+.orb::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9), transparent 60%);
+  opacity: 0.8;
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  transform: rotateX(70deg);
+  box-shadow: 0 0 60px rgba(14, 116, 144, 0.35);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(2deg);
+  }
 }
