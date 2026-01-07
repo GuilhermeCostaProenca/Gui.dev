@@ -46,6 +46,18 @@ export default function CursorFollower() {
     };
 
     const setActiveState = (event) => {
+      const inputTarget = event.target.closest(
+        "input, textarea, select, [contenteditable='true']"
+      );
+      if (inputTarget) {
+        dot.classList.add("is-hidden");
+        ring.classList.add("is-hidden");
+        return;
+      }
+
+      dot.classList.remove("is-hidden");
+      ring.classList.remove("is-hidden");
+
       const target = event.target.closest("[data-cursor='large']");
       if (target) {
         dot.classList.add("is-active");
@@ -56,13 +68,27 @@ export default function CursorFollower() {
       }
     };
 
+    const handlePointerDown = () => {
+      dot.classList.add("is-clicked");
+      ring.classList.add("is-clicked");
+    };
+
+    const handlePointerUp = () => {
+      dot.classList.remove("is-clicked");
+      ring.classList.remove("is-clicked");
+    };
+
     window.addEventListener("pointermove", handleMove);
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointerup", handlePointerUp);
     document.addEventListener("mouseover", setActiveState);
     document.addEventListener("mouseout", setActiveState);
     rafId = window.requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("pointermove", handleMove);
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerup", handlePointerUp);
       document.removeEventListener("mouseover", setActiveState);
       document.removeEventListener("mouseout", setActiveState);
       window.cancelAnimationFrame(rafId);
