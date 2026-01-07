@@ -83,11 +83,12 @@ export default function Services() {
           {serviceCards.map((card, index) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="card-hover rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
+              transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-shadow hover:shadow-lg hover:shadow-black/10 md:p-8"
             >
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-cyan-200">

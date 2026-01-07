@@ -7,8 +7,11 @@ import Designs from './components/Designs/Designs';
 import Highlights from './components/Highlights/Highlights';
 import Footer from './components/Footer/Footer';
 import CursorFollower from './components/CursorFollower/CursorFollower';
+import useLenis from './hooks/useLenis';
 
 function App() {
+  useLenis();
+
   return (
     <>
       <CursorFollower />
