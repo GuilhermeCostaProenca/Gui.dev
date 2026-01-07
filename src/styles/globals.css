@@ -10,6 +10,17 @@ body {
   scroll-behavior: smooth;
 }
 
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid rgba(125, 211, 252, 0.9);
+  outline-offset: 3px;
+}
+
 .font-display {
   font-family: "Bebas Neue", "Space Grotesk", sans-serif;
   letter-spacing: 0.04em;
@@ -48,6 +59,10 @@ body {
   padding-right: 3rem;
   opacity: 0.5;
   animation: marquee 14s linear infinite;
+}
+
+.service-marquee:hover span {
+  animation-play-state: paused;
 }
 
 .highlight-word {
@@ -91,7 +106,7 @@ body {
   left: 0;
   pointer-events: none;
   z-index: 60;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .cursor-dot {
@@ -122,6 +137,21 @@ body {
   height: 52px;
   border-color: rgba(125, 211, 252, 0.9);
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
+}
+
+.cursor-dot.is-clicked {
+  transform: scale(0.8);
+  opacity: 0.6;
+}
+
+.cursor-ring.is-clicked {
+  transform: scale(0.85);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.cursor-dot.is-hidden,
+.cursor-ring.is-hidden {
+  opacity: 0;
 }
 
 
@@ -161,5 +191,15 @@ body {
   }
   50% {
     transform: translateY(-18px) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-marquee span {
+    animation: none;
+  }
+
+  .orb {
+    animation: none;
   }
 }
