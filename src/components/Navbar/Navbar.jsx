@@ -10,6 +10,14 @@ const navLinks = [
   { label: "Contato", href: "#contato" },
 ];
 
+const navLinks = [
+  { label: "Home", href: "#inicio" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "Portfólio", href: "#portfolio" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Contato", href: "#contato" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -111,6 +119,33 @@ export default function Navbar() {
           >
             Vamos conversar
           </a>
+          <div className="hidden items-center gap-3 sm:flex">
+            <a
+              href="https://github.com/GuilhermeCostaProenca"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="large"
+              className="text-white/70 transition hover:text-cyan-200"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+            <a
+              href="https://linkedin.com/in/guilhermecostaproenca"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="large"
+              className="text-white/70 transition hover:text-cyan-200"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href="mailto:contato@guilherme.dev"
+              data-cursor="large"
+              className="text-white/70 transition hover:text-cyan-200"
+            >
+              <Mail className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       )}
     </motion.header>
