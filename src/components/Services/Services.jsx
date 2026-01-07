@@ -1,38 +1,66 @@
 import { motion } from "framer-motion";
 import { Box, Monitor, Palette, Video } from "lucide-react";
 
-const services = [
-  "Website Design",
-  "Graphic Design",
-  "Video Production",
-  "3D Modeling",
-  "All Designs",
-];
-
 const serviceCards = [
   {
     title: "Website Design",
     icon: Monitor,
-    items: ["Landing Pages", "E-commerce", "Portfolio", "UI/UX Design"],
+    items: [
+      "Landing Pages",
+      "E-commerce",
+      "Portfolio",
+      "Blogs",
+      "Corporate Websites",
+      "UI/UX Design",
+      "Responsive Design",
+    ],
   },
   {
     title: "Graphic Design",
     icon: Palette,
-    items: ["Posters", "Banners", "Brand Guides", "Packaging"],
+    items: [
+      "Posters",
+      "Banners",
+      "Brochures & Flyers",
+      "Post Design",
+      "Logo Designs",
+      "Brand Guides",
+      "Packaging",
+      "Business Cards",
+    ],
   },
   {
     title: "Video Editing",
     icon: Video,
-    items: ["Promos", "Corporate", "Social Clips", "Motion"],
+    items: [
+      "Promotional Videos",
+      "Corporate Videos",
+      "Social Media Clips",
+      "Product Demos",
+      "Event Videos",
+      "Motion Graphics",
+    ],
   },
   {
     title: "3D Modeling",
     icon: Box,
-    items: ["Product Design", "Visualization", "Interior", "Motion 3D"],
+    items: [
+      "Product Design",
+      "Product Visualization",
+      "Interior & Exterior Designs",
+      "Motion Graphics",
+    ],
   },
 ];
 
-const partners = ["Wix", "Framer", "Figma", "Shopify", "Webflow", "WordPress"];
+const partners = [
+  { name: "Wix", logo: "https://cdn.simpleicons.org/wix/ffffff" },
+  { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma/ffffff" },
+  { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify/ffffff" },
+  { name: "Webflow", logo: "https://cdn.simpleicons.org/webflow/ffffff" },
+  { name: "WordPress", logo: "https://cdn.simpleicons.org/wordpress/ffffff" },
+];
 
 export default function Services() {
   return (
@@ -51,13 +79,7 @@ export default function Services() {
             sempre com visual premium e foco em conversão.
           </p>
         </motion.div>
-        <div className="service-marquee text-xs uppercase tracking-[0.4em] text-white/50">
-          <span>
-            {services.map((service) => `${service} · `).join(" ")}
-            {services.map((service) => `${service} · `).join(" ")}
-          </span>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:gap-8">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:gap-8">
           {serviceCards.map((card, index) => (
             <motion.div
               key={card.title}
@@ -85,14 +107,15 @@ export default function Services() {
           <p className="text-xs uppercase tracking-[0.4em] text-white/40">
             Parcerias
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
             {partners.map((partner) => (
-              <span
-                key={partner}
-                className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-white/50"
-              >
-                {partner}
-              </span>
+              <img
+                key={partner.name}
+                src={partner.logo}
+                alt={partner.name}
+                loading="lazy"
+                className="h-6 w-auto opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
+              />
             ))}
           </div>
         </div>
