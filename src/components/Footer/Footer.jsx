@@ -52,6 +52,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
+                data-cursor="large"
                 className="w-full rounded-full bg-white py-3 text-sm font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-cyan-100"
               >
                 Submit
@@ -72,6 +73,7 @@ export default function Footer() {
               href="https://github.com/GuilhermeCostaProenca"
               target="_blank"
               rel="noreferrer"
+              data-cursor="large"
               className="text-white/70 transition hover:text-cyan-200"
             >
               <Github size={20} />
@@ -80,12 +82,14 @@ export default function Footer() {
               href="https://www.linkedin.com/in/guilhermecostaproenca"
               target="_blank"
               rel="noreferrer"
+              data-cursor="large"
               className="text-white/70 transition hover:text-cyan-200"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="mailto:contato@guilherme.dev"
+              data-cursor="large"
               className="text-white/70 transition hover:text-cyan-200"
             >
               <Mail size={20} />

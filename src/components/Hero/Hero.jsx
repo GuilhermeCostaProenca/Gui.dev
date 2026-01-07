@@ -1,13 +1,48 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
+  const glowRef = useRef(null);
+
+  useEffect(() => {
+    const element = glowRef.current;
+    if (!element) {
+      return undefined;
+    }
+
+    let current = 0;
+    let target = 0;
+    let rafId;
+
+    const handleScroll = () => {
+      target = window.scrollY || 0;
+    };
+
+    const animate = () => {
+      current += (target - current) * 0.08;
+      element.style.transform = `translate3d(-50%, ${current * 0.15}px, 0)`;
+      rafId = window.requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    rafId = window.requestAnimationFrame(animate);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <section
       id="inicio"
       className="relative min-h-[90vh] w-full overflow-hidden pt-32 pb-24 hero-gradient"
     >
       <div className="absolute inset-0 opacity-40">
-        <div className="absolute -top-32 left-1/2 h-72 w-[60rem] -translate-x-1/2 rounded-full bg-cyan-500/30 blur-[140px]" />
+        <div
+          ref={glowRef}
+          className="absolute -top-32 left-1/2 h-72 w-[60rem] -translate-x-1/2 rounded-full bg-cyan-500/30 blur-[140px]"
+        />
       </div>
       <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-6 text-center">
         <motion.span
@@ -40,12 +75,14 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
             href="#portfolio"
+            data-cursor="large"
             className="rounded-full border border-white/20 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-cyan-200/80 hover:text-cyan-200"
           >
             Ver projetos
           </a>
           <a
             href="#contato"
+            data-cursor="large"
             className="rounded-full bg-white px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-cyan-100"
           >
             Vamos conversar

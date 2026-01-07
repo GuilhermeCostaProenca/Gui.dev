@@ -29,6 +29,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              data-cursor="large"
               className="transition hover:text-cyan-200"
             >
               {link.label}
@@ -38,6 +39,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="mailto:contato@guilherme.dev"
+            data-cursor="large"
             className="hidden items-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/80 transition hover:border-white hover:text-white md:inline-flex"
           >
             Let&apos;s Connect
@@ -47,6 +49,7 @@ export default function Navbar() {
               href="https://github.com/GuilhermeCostaProenca"
               target="_blank"
               rel="noreferrer"
+              data-cursor="large"
               className="text-white/70 transition hover:text-cyan-200"
             >
               <Github className="h-4 w-4" />
@@ -55,12 +58,14 @@ export default function Navbar() {
               href="https://linkedin.com/in/guilhermecostaproenca"
               target="_blank"
               rel="noreferrer"
+              data-cursor="large"
               className="text-white/70 transition hover:text-cyan-200"
             >
               <Linkedin className="h-4 w-4" />
             </a>
             <a
               href="mailto:contato@guilherme.dev"
+              data-cursor="large"
               className="text-white/70 transition hover:text-cyan-200"
             >
               <Mail className="h-4 w-4" />

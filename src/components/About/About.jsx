@@ -23,12 +23,14 @@ export default function About() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href="#contato"
+              data-cursor="large"
               className="rounded-full border border-white/20 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-cyan-200/80 hover:text-cyan-200"
             >
               Let&apos;s Connect
             </a>
             <a
               href="#portfolio"
+              data-cursor="large"
               className="rounded-full bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 transition hover:bg-white/20"
             >
               Blog
