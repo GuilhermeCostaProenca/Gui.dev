@@ -4,64 +4,60 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="min-h-screen w-full flex items-center justify-center px-6 py-20 bg-black text-white"
+      className="relative w-full px-6 py-24 bg-black text-white"
     >
-      <div className="max-w-3xl text-center space-y-10">
-        <motion.h2
+      <div className="absolute inset-0 opacity-20">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div
+              key={index}
+              className="h-36 rounded-2xl border border-white/10 bg-white/5"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="relative mx-auto max-w-3xl rounded-3xl border border-white/15 bg-black/60 p-10 text-center backdrop-blur">
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold tracking-tight"
+          className="text-sm uppercase tracking-[0.4em] text-cyan-200/70"
         >
-          Hi There! 👋
+          About me
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-4 text-4xl md:text-5xl font-semibold"
+        >
+          Hi There!
         </motion.h2>
-
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg md:text-xl text-white/80 leading-relaxed"
-        >
-          Eu sou o Guilherme, um desenvolvedor apaixonado por criar experiências
-          digitais envolventes. Acredito que cada projeto deve equilibrar
-          estética, performance e propósito.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3"
+          className="mt-6 text-base md:text-lg text-white/70 leading-relaxed"
         >
-          {["React", "Tailwind", "Framer Motion", "Git", "Vite"].map((skill) => (
-            <span
-              key={skill}
-              className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 px-4 py-2 text-sm rounded-full font-medium hover:bg-cyan-500/20 transition"
-            >
-              {skill}
-            </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row justify-center gap-4 pt-4"
-        >
+          Eu sou o Guilherme, DEV e estudante de Sistemas de Informação. Uso
+          design e front-end para transformar ideias em experiências digitais com
+          ritmo visual, detalhes e acabamento premium.
+        </motion.p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-white/70">
           <a
-            href="#contato"
-            className="px-6 py-3 bg-white text-black rounded-full text-sm font-semibold tracking-wide hover:bg-gray-200 transition"
+            href="mailto:guilherme@email.com"
+            className="rounded-full border border-white/20 px-5 py-2 hover:border-white transition"
           >
-            Vamos conversar
+            Let&apos;s Connect
           </a>
           <a
-            href="#blog"
-            className="px-6 py-3 border border-white/20 rounded-full text-sm text-white hover:bg-white hover:text-black transition"
+            href="#portfolio"
+            className="rounded-full border border-white/20 px-5 py-2 hover:border-white transition"
           >
-            Ver blog
+            Portfolio
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
