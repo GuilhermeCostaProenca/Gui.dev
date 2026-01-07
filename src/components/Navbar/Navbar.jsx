@@ -10,14 +10,6 @@ const navLinks = [
   { label: "Contato", href: "#contato" },
 ];
 
-const navLinks = [
-  { label: "Home", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Contato", href: "#contato" },
-];
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
