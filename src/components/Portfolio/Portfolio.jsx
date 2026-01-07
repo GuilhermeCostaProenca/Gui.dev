@@ -2,21 +2,24 @@ import { motion } from "framer-motion";
 
 const projetos = [
   {
-    nome: "FAQ Interno",
-    descricao: "Sistema de coleta de dúvidas internas com exportação para Excel.",
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=FAQ",
+    nome: "Homepage 3D",
+    descricao:
+      "Composição hero com esfera animada, luzes e tipografia oversized.",
+    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Sandbox",
     link: "#",
   },
   {
-    nome: "Mapeamento de Mercado",
-    descricao: "Painel com regiões críticas de energia via scraping e Power BI.",
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Dashboard",
+    nome: "Seções modulares",
+    descricao:
+      "Cards e blocos escaláveis para reutilizar em múltiplas páginas.",
+    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Insights",
     link: "#",
   },
   {
-    nome: "Pet Shop iFood",
-    descricao: "E-commerce automatizado com sistema de entregas e catálogo integrado.",
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=PetShop",
+    nome: "Fluxo de contato",
+    descricao:
+      "CTA claros e integrados para conversão e conexão direta.",
+    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Landing",
     link: "#",
   },
 ];
@@ -25,16 +28,16 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="w-full min-h-screen py-20 px-6 bg-black text-white flex items-center justify-center"
+      className="w-full py-24 px-6 bg-black text-white flex items-center justify-center"
     >
       <div className="max-w-6xl w-full text-center space-y-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold"
+          className="text-4xl md:text-5xl font-semibold"
         >
-          Portfólio
+          Projetos do laboratório
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,4 +68,3 @@ export default function Portfolio() {
     </section>
   );
 }
-
