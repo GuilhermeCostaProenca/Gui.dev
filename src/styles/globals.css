@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 
 @tailwind base;
 @tailwind components;
@@ -9,10 +9,6 @@ body {
   font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
-.display-font {
-  font-family: "Anton", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: 0.02em;
-}
 
 .orb {
   position: relative;

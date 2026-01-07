@@ -2,27 +2,17 @@ import { motion } from "framer-motion";
 
 const projetos = [
   {
-    nome: "TT Partners",
-    descricao: "Agency",
+ main
     imagem: "https://placehold.co/600x400/000000/00FFFF?text=Sandbox",
     link: "#",
   },
   {
-    nome: "TigreTigre",
-    descricao: "Restaurant",
+ main
     imagem: "https://placehold.co/600x400/000000/00FFFF?text=Insights",
     link: "#",
   },
   {
-    nome: "Dave | Portfolio",
-    descricao: "Portfolio",
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Landing",
-    link: "#",
-  },
-  {
-    nome: "Sky Media Partners",
-    descricao: "Business",
-    imagem: "https://placehold.co/600x400/000000/00FFFF?text=Business",
+main
     link: "#",
   },
 ];
@@ -50,9 +40,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-2xl md:text-3xl font-semibold text-left"
-        >
-          Featured Projects
+
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
