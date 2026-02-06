@@ -1,5 +1,8 @@
 # Guilherme Dev Portfolio
 
+[![CI](https://github.com/GuilhermeCostaProenca/guilherme-dev-portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/GuilhermeCostaProenca/guilherme-dev-portfolio/actions/workflows/ci.yml)
+
+
 Personal developer website and portfolio built with JavaScript.
 
 ## Highlights
@@ -33,3 +36,4 @@ Active and maintained.
 ## Author
 **Guilherme Costa Proenca**
 - GitHub: https://github.com/GuilhermeCostaProenca
+
