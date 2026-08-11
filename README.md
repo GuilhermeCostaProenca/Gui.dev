@@ -1,39 +1,26 @@
-# Guilherme Dev Portfolio
+# Guilherme — Developer Portfolio
 
-[![CI](https://github.com/GuilhermeCostaProenca/guilherme-dev-portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/GuilhermeCostaProenca/guilherme-dev-portfolio/actions/workflows/ci.yml)
-
-
-Personal developer website and portfolio built with JavaScript.
+My personal developer portfolio: a fast, animated single-page site built with a modern front-end stack.
 
 ## Highlights
-- Production-focused repository with clear structure and maintainable code.
-- Versioned with Git and documented for collaboration and review.
-- Continuously improved as part of my professional portfolio.
 
-## Tech Stack
-"frontend", "javascript", "portfolio", "website"
+- **React + Vite** for a fast, modern build
+- **Framer Motion** for animations and transitions
+- **Lenis** for smooth scrolling
+- **Tailwind CSS** for styling, **lucide-react** for icons
+- Husky + lint/format hooks and CI for consistent quality
 
-## Getting Started
-### Prerequisites
-- Git
-- Runtime/dependencies for this stack (see project files)
+## Stack
 
-### Clone
-`ash
+React · Vite · Framer Motion · Tailwind CSS · JavaScript
+
+## Getting started
+
+```bash
 git clone https://github.com/GuilhermeCostaProenca/guilherme-dev-portfolio.git
 cd guilherme-dev-portfolio
-`",
-    ",
-    
-`ash
-# install dependencies
-# run project
-`",
-    ",
-    
-Active and maintained.
+npm install
+npm run dev
+```
 
-## Author
-**Guilherme Costa Proenca**
-- GitHub: https://github.com/GuilhermeCostaProenca
-
+Build with `npm run build` and preview with `npm run preview`.
